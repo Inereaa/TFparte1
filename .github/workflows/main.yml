@@ -30,6 +30,7 @@ jobs:
       # TERRAFORM INSTALL
       - name: Setup terraform
         run: |
+          cd tf
           curl -Lo terraform.zip https://releases.hashicorp.com/terraform/1.4.0/terraform_1.4.0_linux_amd64.zip
           unzip -o terraform.zip
           sudo mv terraform /usr/local/bin/
@@ -38,11 +39,13 @@ jobs:
       # TERRAFORM INIT
       - name: TERRAFORM INIT
         run: |
+          cd tf
           terraform init
 
       # TERRAFORM APPLY
       - name: TERRAFORM APPLY
         run: |
+          cd tf
           terraform apply -auto-approve
 
         
